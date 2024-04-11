@@ -10,7 +10,7 @@ function displayCatImage(imageUrl) {
     catImageContainer.appendChild(img);
 }
 
-// Function to fetch cat image data from the JSON 
+// Function to fetch cat image data from the JSON server
 function fetchCatImage(statusCode) {
     return fetch(`http://localhost:3000/catImages?statusCode=${statusCode}`)
         .then(response => {
