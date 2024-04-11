@@ -2,7 +2,7 @@ const statusCodeInput = document.getElementById('status-code');
 const clearBtn = document.getElementById('clear-btn');
 const catImageContainer = document.getElementById('cat-image-container');
 
-// Function to display cat 
+// Function to display cat images
 function displayCatImage(imageUrl) {
     const img = document.createElement('img');
     img.src = imageUrl;
