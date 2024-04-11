@@ -10,47 +10,36 @@ function displayCatImage(imageUrl) {
     catImageContainer.appendChild(img);
 }
 
-// Function to fetch cat images from the JSON server
-function fetchCatImages() {
-    return fetch('http://localhost:3000/catImages')
+// Function to fetch cat image data from the JSON server
+function fetchCatImage(statusCode) {
+    return fetch(`http://localhost:3000/catImages?statusCode=${statusCode}`)
         .then(response => {
             if (!response.ok) {
-                throw new Error('Error fetching cat images');
+                throw new Error('Error fetching cat image');
             }
             return response.json();
         })
+        .then(data => {
+            if (data.length > 0) {
+                displayCatImage(data[0].image);
+            } else {
+                catImageContainer.innerHTML = 'No cat image found for this status code.';
+            }
+        })
         .catch(error => {
             console.error(error);
-            catImageContainer.innerHTML = 'Error fetching cat images';
+            catImageContainer.innerHTML = 'Error fetching cat image';
         });
 }
 
-// Function to get cat image based on status code
-function getCatImage(catImages, statusCode) {
-    return catImages.find((image) => image.statusCode === parseInt(statusCode));
-}
-
-// Function to fetch cat image data and display based on status code
-function fetchAndDisplayCatImage(statusCode) {
-    fetchCatImages()
-        .then(catImages => {
-            if (statusCode.length > 0 && !isNaN(statusCode) && statusCode >= 200 && statusCode <= 599) {
-                const catImage = getCatImage(catImages, statusCode);
-                if (catImage) {
-                    displayCatImage(catImage.image);
-                } else {
-                    catImageContainer.innerHTML = 'No cat image found for this status code.';
-                }
-            } else {
-                catImageContainer.innerHTML = '';
-            }
-        });
-}
-
-// Input event listener on status code input field
+// Event listener on status code input field
 statusCodeInput.addEventListener('input', (event) => {
     const statusCode = event.target.value;
-    fetchAndDisplayCatImage(statusCode);
+    if (statusCode.length > 0 && !isNaN(statusCode) && statusCode >= 200 && statusCode <= 599) {
+        fetchCatImage(statusCode);
+    } else {
+        catImageContainer.innerHTML = '';
+    }
 });
 
 // Click event listener on "Clear" button
@@ -60,12 +49,14 @@ clearBtn.addEventListener('click', () => {
 });
 
 // Event listener for Enter key press
-statusCodeInput.addEventListener('keypress', (event) => {
+statusCodeInput.addEventListener('keypress', event => {
     if (event.key === 'Enter') {
         const statusCode = statusCodeInput.value;
         fetchAndDisplayCatImage(statusCode);
     }
 });
-  
+     
+          
+
            
       
