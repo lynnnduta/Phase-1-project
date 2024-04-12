@@ -48,7 +48,7 @@ clearBtn.addEventListener('click', () => {
     catImageContainer.innerHTML = '';
 });
 
-// Event listener for Enter Key Press
+// Event listener for Enter key press
 statusCodeInput.addEventListener('keypress', event => {
     if (event.key === 'Enter') {
         const statusCode = statusCodeInput.value;
