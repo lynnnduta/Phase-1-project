@@ -55,5 +55,17 @@ statusCodeInput.addEventListener('keypress', event => {
         fetchAndDisplayCatImage(statusCode);
     }
 });
-     
-          
+
+document.addEventListener('click', (event) => {
+    if (!statusCodeInput.contains(event.target)) {
+        const statusCode = statusCodeInput.value;
+        if (statusCode.length > 0 && !isNaN(statusCode)) {
+            const catImage = getCatImage(statusCode);
+            if (catImage) {
+                displayCatImage(catImage.image);
+            } else {
+                catImageContainer.innerHTML = 'No cat image found for this status code.';
+            }
+        }
+    }
+});

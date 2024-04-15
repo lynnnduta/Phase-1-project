@@ -1,13 +1,11 @@
 # HTTP cats
 
-#### Date, 2018/09/14
+#### Date, 11/04/2024
 
 #### By *Lynn Nduta Wainaina*
 
 ## Description
-HTTP Cats is a project that provides a visual representation of various HTTP status codes using cat images. Each status code has a different cat image, making it easy to understand and remember the meaning behind the codes.
-
-
+It's a webpage that generates Cat images for HTTP status codes.
 
 ## Installation
 You use git clone to be able to download the documents in the GitHub

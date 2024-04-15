@@ -1,6 +1,6 @@
 body {
-    background-color: #ff7e5f;
-    background-image: #feb47b;
+    background-color: #f0f0f0; /* Fallback color */
+    background-image: linear-gradient(to bottom right, #ff7e5f, #feb47b); /* Gradient background */
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
@@ -12,7 +12,7 @@ body {
     padding: 20px;
     background-color: #fff; 
     border-radius: 10px;
-    
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
 }
 
 h1 {
