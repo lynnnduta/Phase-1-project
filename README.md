@@ -1,4 +1,4 @@
-# (HTTP cats)
+# HTTP cats
 
 #### Date, 2018/09/14
 
