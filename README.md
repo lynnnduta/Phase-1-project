@@ -5,8 +5,7 @@
 #### By *Lynn Nduta Wainaina*
 
 ## Description
-It's a webpage that generates Cat images for HTTP status codes.
-
+HTTP Cats is a  project aimed at providing a visual representation of various HTTP status codes using cat images
 ## Installation
 You use git clone to be able to download the documents in the GitHub
 
